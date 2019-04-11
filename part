@@ -1,0 +1,48 @@
+var meta1=document.querySelector('meta[name="viewpoint"]');
+var doc=document.documentElement
+var doc1=document.documentElement.firstElementchild;
+var scale=isRetina;
+if(meta1){
+meta1.setAttribute('content','width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no');
+}
+else{
+ meta1=document.createElement('meta');
+ meta1.setAttribute('name','viewpoint');
+ meta1.setAttribute('content','width=device-width,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no');
+if(doc1){
+ doc1.appendChild(meta1); 
+}else{
+vardoc2=document.createElement('div');
+doc2.appendChild(meta1);
+document.write(doc2.innerHTML); //?
+}
+}
+
+var isAndroid=window.navigator.appVersion.match(/andriod/gi);
+var isIPone=window.navigator.appVersion.match(/ipone/gi);
+var dpr=window.devicePixelRatio;
+ if(isIPone){
+   if(dpr>=3){dpr=3;}
+   else if(dpr>=2){dpr=2;}
+   else{dpr=1;}
+ }else{
+   dpr=1;
+}
+ scale=1/dpr;
+
+function isRetina(){
+ if(dpr!==1){return false}
+  return true;
+}
+function htmlRem{
+var width=document.documentElement.getBoundingClientRect().width;
+ if(!maxWidth){
+  maxWidth=640px;
+}
+ if(width>maxWidth){
+   width=maxWidth;
+}
+var rem=width/10;   //或者媒介查询设置
+doc.style.fontsize=rem+'px';
+}
+htmlRem();
