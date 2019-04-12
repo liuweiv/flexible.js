@@ -1,4 +1,6 @@
 var meta1=document.querySelector('meta[name="viewpoint"]');
+var meta2=document.querySelector('meta[name="flexible"]');
+var dpr1=meta2,getAttribute('content').match(/dpr/);
 var doc=document.documentElement
 var doc1=document.documentElement.firstElementchild;
 var scale=isRetina;
@@ -18,6 +20,7 @@ document.write(doc2.innerHTML); //?
 }
 }
 
+if(!dpr1){
 var isAndroid=window.navigator.appVersion.match(/andriod/gi);
 var isIPone=window.navigator.appVersion.match(/ipone/gi);
 var dpr=window.devicePixelRatio;
@@ -29,6 +32,7 @@ var dpr=window.devicePixelRatio;
    dpr=1;
 }
  scale=1/dpr;
+}
 
 function isRetina(){
  if(dpr!==1){return false}
